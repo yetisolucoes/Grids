@@ -121,4 +121,8 @@ class Filter
             $value
         );
     }
+
+    public function getColumn(){
+        return $this->column;
+    }
 }

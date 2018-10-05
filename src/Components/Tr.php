@@ -52,6 +52,7 @@ class Tr extends HtmlTag
             $component->setContent($column->getValue($row));
             $out .= $component->render();
         }
+        //dump($out);
         return $out;
     }
 
@@ -63,5 +64,23 @@ class Tr extends HtmlTag
     public function getContent()
     {
         return $this->getDataRow() ? $this->renderCells() : parent::getContent();
+    }
+
+    /**
+     * Returns html tag attributes.
+     * Keys are attribute names and values are attribute values.
+     *
+     * @return array
+     */
+    public function getAttributes()
+    {
+        //return $this->attributes;
+        $rowId = $this->getDataRow()->getCellValue('id');
+        // Prepare your attributes
+        $newAttributes = [
+             'data-id' => $rowId,
+             'class' => 'grid-row'
+        ];
+        return array_merge(parent::getAttributes(), $newAttributes);
     }
 }
