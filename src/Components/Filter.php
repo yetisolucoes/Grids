@@ -58,10 +58,10 @@ class Filter extends RenderableComponent
         return $this->label;
     }
 
-    public function getName()
+    /*public function getName()
     {
         return $this->name;
-    }
+    }*/
 
     /**
      * Sets text label for filtering control.
